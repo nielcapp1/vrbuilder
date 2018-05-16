@@ -1,0 +1,16 @@
+.profile {
+    img {
+      height: 36px;
+      width: 36px;
+      border-radius: 18px;
+      float: left;
+      
+    }
+    p {
+      color: $black;
+      padding-left: 10px;
+      float: left;
+    }
+    display: block;
+    margin-bottom: 36px;
+  }

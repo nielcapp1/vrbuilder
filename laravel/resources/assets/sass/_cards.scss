@@ -1,0 +1,18 @@
+.card {
+    i {
+        color: $white;
+        padding: 8px;
+        font-size: 20px;
+        border-radius: 36px;
+        margin: 0px;
+        background-color: $main-blue;
+    }
+    .title {
+        font-size: 14px;
+        font-weight: bold;
+        color: $dark-blue;
+    }
+    a {
+        cursor: pointer;
+    }
+}

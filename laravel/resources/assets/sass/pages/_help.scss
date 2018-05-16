@@ -1,0 +1,29 @@
+.help-title {
+    color: $main-blue;
+    font-weight: bold;
+    background-color: $main-blue;
+    color: $white;
+    width: 100px;
+    padding: 6px 12px;
+    font-size: 14px;
+    margin: 5px 2px 0px 20px;
+    border-radius: 5px;
+  }
+  p.help {
+    text-align: left;
+    line-height: 1.5;
+    .component-tag {
+      background-color: $main-blue;
+      color: $white;
+      padding: 2px 6px;
+      font-size: 10px;
+      display: inline-block;
+      border-radius: 5px;
+    }
+  }
+  
+  .left img {
+    float: left;
+    margin-bottom: 50px;
+  }
+  

@@ -1,0 +1,39 @@
+.cr-boundary {
+    width: 250px !important;
+    height: 250px !important;
+    border-radius: 3px;
+}
+
+.thumb {
+    display: none;
+}
+
+.invalid-feedback {
+    color: $alarm-red;
+}
+  
+img {
+    max-width: 100%;
+}
+  
+body {
+    margin: 0;
+    color: $main-blue;
+    line-height: 1.2;
+    font-size: $font-size;
+    font-family: $font-family-sans-serif;
+}
+  
+.container {
+    margin-top: 40px;
+}
+
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('/assets/logo-bap.gif') 50% 50% no-repeat $dark-blue;
+}

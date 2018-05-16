@@ -1,0 +1,31 @@
+.title-bar {
+    margin-bottom: 20px;
+    height: 36px;
+    background-color: $light-gray;
+    border-radius: 18px;
+    h1 {
+      color: $black;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      padding: 11px;
+      position: relative;
+      i {
+        padding: 8px;
+        border-radius: 18px;
+        font-size: 20px;
+        background-color: $main-blue;
+        color: $white;
+        position: absolute;
+        cursor: pointer;
+      }
+      i.left {
+        left: 0;
+        top: 0;
+      }
+      i.right {
+        right: 0;
+        top: 0;
+      }
+    }
+  }
