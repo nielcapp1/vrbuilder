@@ -53,20 +53,20 @@ class PanoController extends Controller
         $splitImage = explode('base64,', $thumbnailEncoded);
         $image = $splitImage[1];
         $imageDecoded = base64_decode($image);
-        $thumbnail = UPLOAD_DIR_THUMBNAILS . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+        $thumbnail = UPLOAD_DIR_THUMBNAILS . '/' . uniqid() . '.jpeg';
         file_put_contents($thumbnail, $imageDecoded);
 
         // Move panorama to folder for panoramas
         define('UPLOAD_DIR_PANORAMAS', 'uploads/panoramas');
         $pano = request('pano');
         $destinationPathPano = 'uploads/pano';
-        $fileNamePano = UPLOAD_DIR_PANORAMAS . DIRECTORY_SEPARATOR . uniqid() .'.'.$pano->guessExtension();
+        $fileNamePano = UPLOAD_DIR_PANORAMAS . '/' . uniqid() .'.'.$pano->guessExtension();
         $pano->move(UPLOAD_DIR_PANORAMAS, $fileNamePano);
 
 
         $space = Space::create([
             'title' => request('title'),
-            'thumbnail' => DIRECTORY_SEPARATOR . $thumbnail,
+            'thumbnail' => '/' . $thumbnail,
             'type' => '1',
             'visibility' => '1',
             'user_id' => auth()->id()
@@ -85,7 +85,7 @@ class PanoController extends Controller
             define('UPLOAD_DIR_SOUNDS', 'uploads/audio');
             $audio = request('audio');
             $destinationPathPano = 'uploads/pano';
-            $fileNameAudio = UPLOAD_DIR_SOUNDS . DIRECTORY_SEPARATOR . uniqid() .'.mp3';
+            $fileNameAudio = UPLOAD_DIR_SOUNDS . '/' . uniqid() .'.mp3';
             $audio->move(UPLOAD_DIR_SOUNDS, $fileNameAudio);
 
             // Create sound component
@@ -159,11 +159,11 @@ class PanoController extends Controller
             $splitImage = explode('base64,', $thumbnailEncoded);
             $image = $splitImage[1];
             $imageDecoded = base64_decode($image);
-            $newThumbnail = UPLOAD_DIR_THUMBNAILS . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+            $newThumbnail = UPLOAD_DIR_THUMBNAILS . '/' . uniqid() . '.jpeg';
             file_put_contents($newThumbnail, $imageDecoded);
 
             // Put the new url in the database
-            $space->thumbnail = DIRECTORY_SEPARATOR . $newThumbnail;
+            $space->thumbnail = '/' . $newThumbnail;
             
         }
 
@@ -185,7 +185,7 @@ class PanoController extends Controller
             define('UPLOAD_DIR_PANORAMAS', 'uploads/panoramas');
             $pano = request('pano');
             $destinationPathPano = 'uploads/pano';
-            $fileNamePano = UPLOAD_DIR_PANORAMAS . DIRECTORY_SEPARATOR . uniqid() . '.'.$pano->guessExtension();
+            $fileNamePano = UPLOAD_DIR_PANORAMAS . '/' . uniqid() . '.'.$pano->guessExtension();
             $pano->move(UPLOAD_DIR_PANORAMAS, $fileNamePano);
 
             // Create Pano record
@@ -217,7 +217,7 @@ class PanoController extends Controller
                 // Move audio to folder for audio
                 define('UPLOAD_DIR_SOUNDS', 'uploads/audio');
                 $audio = request('audio');
-                $fileNameAudio = UPLOAD_DIR_SOUNDS . DIRECTORY_SEPARATOR . uniqid() .'.mp3';
+                $fileNameAudio = UPLOAD_DIR_SOUNDS . '/' . uniqid() .'.mp3';
                 $audio->move(UPLOAD_DIR_SOUNDS, $fileNameAudio);
 
                 // Create sound component
@@ -234,7 +234,7 @@ class PanoController extends Controller
                 // Move audio to folder for audio
                 define('UPLOAD_DIR_SOUNDS', 'uploads/audio');
                 $audio = request('audio');
-                $fileNameAudio = UPLOAD_DIR_SOUNDS . DIRECTORY_SEPARATOR . uniqid() .'.mp3';
+                $fileNameAudio = UPLOAD_DIR_SOUNDS . '/' . uniqid() .'.mp3';
                 $audio->move(UPLOAD_DIR_SOUNDS, $fileNameAudio);
 
                 // Create sound component

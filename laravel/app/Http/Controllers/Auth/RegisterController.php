@@ -82,7 +82,7 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'profile_picture' => DIRECTORY_SEPARATOR . $fileName,
+            'profile_picture' => '/' . $fileName,
             'type' => 1,
         ]);
     }

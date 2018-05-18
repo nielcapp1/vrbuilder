@@ -71,7 +71,7 @@ class ProfileController extends Controller
         file_put_contents($fileName, $test);
 
         // Fill Title field with the Title input.
-        $user->profile_picture = DIRECTORY_SEPARATOR . $fileName;
+        $user->profile_picture = '/' . $fileName;
         
         // Save the space.
         $user->save();

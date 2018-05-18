@@ -89,7 +89,7 @@
                     <div class="left">
                         <h1 class="help-title">Stap 1</h1>
                         <p class="help">
-                            Surf met je smartphone naar www.vrbuilder.com en klik op omgevingen. Hier zie je alle omgevingen die raadpleegbaar zijn.
+                            Surf met je smartphone naar www.vrbuilder.be en klik op omgevingen. Hier zie je alle omgevingen die raadpleegbaar zijn.
                         </p>
                         <br>
                     </div>

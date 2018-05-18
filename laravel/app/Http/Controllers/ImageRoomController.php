@@ -60,12 +60,12 @@ class ImageRoomController extends Controller
         $splitImage = explode('base64,', $thumbnailEncoded);
         $image = $splitImage[1];
         $imageDecoded = base64_decode($image);
-        $thumbnail = UPLOAD_DIR_THUMBNAILS . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+        $thumbnail = UPLOAD_DIR_THUMBNAILS . '/' . uniqid() . '.jpeg';
         file_put_contents($thumbnail, $imageDecoded);
 
         $space = Space::create([
             'title' => request('title'),
-            'thumbnail' => DIRECTORY_SEPARATOR . $thumbnail,
+            'thumbnail' => '/' . $thumbnail,
             'type' => '4',
             'visibility' => '1',
             'user_id' => auth()->id()
@@ -76,7 +76,7 @@ class ImageRoomController extends Controller
             $splitImage = explode('base64,', $slide1Encoded);
             $image = $splitImage[1];
             $imageDecoded = base64_decode($image);
-            $slide1 = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+            $slide1 = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
             file_put_contents($slide1, $imageDecoded);
             $title1 = request('title_slide_1');
             Component::create([
@@ -93,7 +93,7 @@ class ImageRoomController extends Controller
             $splitImage = explode('base64,', $slide2Encoded);
             $image = $splitImage[1];
             $imageDecoded = base64_decode($image);
-            $slide2 = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+            $slide2 = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
             file_put_contents($slide2, $imageDecoded);
             $title2 = request('title_slide_2');
             Component::create([
@@ -110,7 +110,7 @@ class ImageRoomController extends Controller
             $splitImage = explode('base64,', $slide3Encoded);
             $image = $splitImage[1];
             $imageDecoded = base64_decode($image);
-            $slide3 = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+            $slide3 = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
             file_put_contents($slide3, $imageDecoded);
             $title3 = request('title_slide_3');
             Component::create([
@@ -127,7 +127,7 @@ class ImageRoomController extends Controller
             $splitImage = explode('base64,', $slide4Encoded);
             $image = $splitImage[1];
             $imageDecoded = base64_decode($image);
-            $slide4 = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+            $slide4 = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
             file_put_contents($slide4, $imageDecoded);
             $title4 = request('title_slide_4');
             Component::create([
@@ -144,7 +144,7 @@ class ImageRoomController extends Controller
             $splitImage = explode('base64,', $slide5Encoded);
             $image = $splitImage[1];
             $imageDecoded = base64_decode($image);
-            $slide5 = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+            $slide5 = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
             file_put_contents($slide5, $imageDecoded);
             $title5 = request('title_slide_5');
             Component::create([
@@ -161,7 +161,7 @@ class ImageRoomController extends Controller
             $splitImage = explode('base64,', $slide6Encoded);
             $image = $splitImage[1];
             $imageDecoded = base64_decode($image);
-            $slide6 = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+            $slide6 = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
             file_put_contents($slide6, $imageDecoded);
             $title6 = request('title_slide_6');
             Component::create([
@@ -180,7 +180,7 @@ class ImageRoomController extends Controller
             define('UPLOAD_DIR_SOUNDS', 'uploads/audio');
             $audio = request('audio');
             $destinationPathPano = 'uploads/pano';
-            $fileNameAudio = UPLOAD_DIR_SOUNDS . DIRECTORY_SEPARATOR . uniqid() .'.mp3';
+            $fileNameAudio = UPLOAD_DIR_SOUNDS . '/' . uniqid() .'.mp3';
             $audio->move(UPLOAD_DIR_SOUNDS, $fileNameAudio);
 
             // Create sound component
@@ -269,11 +269,11 @@ class ImageRoomController extends Controller
             $splitImage = explode('base64,', $thumbnailEncoded);
             $image = $splitImage[1];
             $imageDecoded = base64_decode($image);
-            $newThumbnail = UPLOAD_DIR_THUMBNAILS . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+            $newThumbnail = UPLOAD_DIR_THUMBNAILS . '/' . uniqid() . '.jpeg';
             file_put_contents($newThumbnail, $imageDecoded);
 
             // Put the new url in the database
-            $space->thumbnail = DIRECTORY_SEPARATOR . $newThumbnail;
+            $space->thumbnail = '/' . $newThumbnail;
             
         }
 
@@ -313,7 +313,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -344,7 +344,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -419,7 +419,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -450,7 +450,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -524,7 +524,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -555,7 +555,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -629,7 +629,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -660,7 +660,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -734,7 +734,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -765,7 +765,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -839,7 +839,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -870,7 +870,7 @@ class ImageRoomController extends Controller
                 $imageDecoded = base64_decode($image);
 
                 // Create Filename
-                $slide = UPLOAD_DIR_SLIDES . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+                $slide = UPLOAD_DIR_SLIDES . '/' . uniqid() . '.jpeg';
 
                 // Put File in Public Folder
                 file_put_contents($slide, $imageDecoded);
@@ -934,7 +934,7 @@ class ImageRoomController extends Controller
                 // Move audio to folder for audio
                 define('UPLOAD_DIR_SOUNDS', 'uploads/audio');
                 $audio = request('audio');
-                $fileNameAudio = UPLOAD_DIR_SOUNDS . DIRECTORY_SEPARATOR . uniqid() .'.mp3';
+                $fileNameAudio = UPLOAD_DIR_SOUNDS . '/' . uniqid() .'.mp3';
                 $audio->move(UPLOAD_DIR_SOUNDS, $fileNameAudio);
 
                 // Create sound component
@@ -950,7 +950,7 @@ class ImageRoomController extends Controller
                 // Move audio to folder for audio
                 define('UPLOAD_DIR_SOUNDS', 'uploads/audio');
                 $audio = request('audio');
-                $fileNameAudio = UPLOAD_DIR_SOUNDS . DIRECTORY_SEPARATOR . uniqid() .'.mp3';
+                $fileNameAudio = UPLOAD_DIR_SOUNDS . '/' . uniqid() .'.mp3';
                 $audio->move(UPLOAD_DIR_SOUNDS, $fileNameAudio);
 
                 // Create sound component

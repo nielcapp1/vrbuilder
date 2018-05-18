@@ -52,19 +52,19 @@ class VideoPanoController extends Controller
         $splitImage = explode('base64,', $thumbnailEncoded);
         $image = $splitImage[1];
         $imageDecoded = base64_decode($image);
-        $thumbnail = UPLOAD_DIR_THUMBNAILS . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+        $thumbnail = UPLOAD_DIR_THUMBNAILS . '/' . uniqid() . '.jpeg';
         file_put_contents($thumbnail, $imageDecoded);
 
         // Move panorama to folder for panoramas
         define('UPLOAD_DIR_VIDEOPANO', 'uploads/videopano');
         $videopano = request('video_pano');
-        $fileNameVideoPano = UPLOAD_DIR_VIDEOPANO . DIRECTORY_SEPARATOR . uniqid() .'.'.$videopano->guessExtension();
+        $fileNameVideoPano = UPLOAD_DIR_VIDEOPANO . '/' . uniqid() .'.'.$videopano->guessExtension();
         $videopano->move(UPLOAD_DIR_VIDEOPANO, $fileNameVideoPano);
 
 
         $space = Space::create([
             'title' => request('title'),
-            'thumbnail' => DIRECTORY_SEPARATOR . $thumbnail,
+            'thumbnail' => '/' . $thumbnail,
             'type' => '2',
             'visibility' => '1',
             'user_id' => auth()->id()
@@ -143,11 +143,11 @@ class VideoPanoController extends Controller
             $splitImage = explode('base64,', $thumbnailEncoded);
             $image = $splitImage[1];
             $imageDecoded = base64_decode($image);
-            $newThumbnail = UPLOAD_DIR_THUMBNAILS . DIRECTORY_SEPARATOR . uniqid() . '.jpeg';
+            $newThumbnail = UPLOAD_DIR_THUMBNAILS . '/' . uniqid() . '.jpeg';
             file_put_contents($newThumbnail, $imageDecoded);
 
             // Put the new url in the database
-            $space->thumbnail = DIRECTORY_SEPARATOR . $newThumbnail;
+            $space->thumbnail = '/' . $newThumbnail;
             
         }
         
@@ -168,7 +168,7 @@ class VideoPanoController extends Controller
             // Move panorama to folder for panoramas
             define('UPLOAD_DIR_VIDEOPANO', 'uploads/videopano');
             $videopano = request('video_pano');
-            $fileNameVideoPano = UPLOAD_DIR_VIDEOPANO . DIRECTORY_SEPARATOR . uniqid() . '.'.$videopano->guessExtension();
+            $fileNameVideoPano = UPLOAD_DIR_VIDEOPANO . '/' . uniqid() . '.'.$videopano->guessExtension();
             $videopano->move(UPLOAD_DIR_VIDEOPANO, $fileNameVideoPano);
 
             // Create Pano record

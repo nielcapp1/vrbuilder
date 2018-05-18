@@ -507,7 +507,7 @@ class react_vr extends React.Component {
             this.setState({ slide04 });
             this.setState({ slide05 });
             this.setState({ slide06 });
-            console.log(this.state.sounds[0].value)
+
             if (this.state.currentItem = 1) {
               this.disableButtonPrevious()
             }
@@ -518,7 +518,7 @@ class react_vr extends React.Component {
             }
           })
         }
-
+        this.go();
     })
     .catch(err => {
       console.error('An error occurred', err)
@@ -581,7 +581,7 @@ class react_vr extends React.Component {
           {
             this.state.sounds.map(item => (this.state.sounds.length != 0) ? <Sound volume={5} key={1} loop={true} source={{uri: this.state.baseUrl + this.state.sounds[0].value}} /> : '')
           }
-         <View style={this.styles.menu}>
+        <View style={this.styles.menu}>
             <VrButton disabled={this.state.disableButtonPrevious} style={this.styles.button} onEnter={() => this.previousImage()} onEnterSound={{ mp3: asset('click.mp3')}} > 
                 <Text style={this.styles.text}>
                   Vorige
@@ -857,6 +857,7 @@ class react_vr extends React.Component {
       </View>
     );
   }
+
 };
 
 AppRegistry.registerComponent('react_vr', () => react_vr);
